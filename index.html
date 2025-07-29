@@ -1,0 +1,531 @@
+
+
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+  <meta name="description" content="" />
+  <meta name="author" content="" />
+  <title>Login - CDM Portal</title>
+  <link href="../css/styles.css" rel="stylesheet" />
+  <link rel="icon" type="image/x-icon" href="https://pub-732c458bc77e4eef9ad283fd0dbb9edc.r2.dev/favicon.ico" />
+  <script data-search-pseudo-elements defer src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/js/all.min.js" crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/feather-icons/4.28.0/feather.min.js" crossorigin="anonymous"></script>
+  <!--<script src="https://www.google.com/recaptcha/api.js" async defer></script>-->
+
+  <style>
+    /* Ensure the reCAPTCHA widget is responsive */
+    .g-recaptcha {
+      width: 100%;
+      transform: scale(0.9);
+      /* Adjust this scale as needed */
+      transform-origin: 0 0;
+    }
+
+    .login-with-google-btn {
+      transition: background-color .3s, box-shadow .3s;
+
+      padding: 12px 16px 12px 42px;
+      border: none;
+      border-radius: 3px;
+      box-shadow: 0 -1px 0 rgba(0, 0, 0, .04), 0 1px 1px rgba(0, 0, 0, .25);
+
+      color: #757575;
+      font-size: 14px;
+      font-weight: 500;
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, "Fira Sans", "Droid Sans", "Helvetica Neue", sans-serif;
+
+      background-image: url(data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMTgiIGhlaWdodD0iMTgiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+PGcgZmlsbD0ibm9uZSIgZmlsbC1ydWxlPSJldmVub2RkIj48cGF0aCBkPSJNMTcuNiA5LjJsLS4xLTEuOEg5djMuNGg0LjhDMTMuNiAxMiAxMyAxMyAxMiAxMy42djIuMmgzYTguOCA4LjggMCAwIDAgMi42LTYuNnoiIGZpbGw9IiM0Mjg1RjQiIGZpbGwtcnVsZT0ibm9uemVybyIvPjxwYXRoIGQ9Ik05IDE4YzIuNCAwIDQuNS0uOCA2LTIuMmwtMy0yLjJhNS40IDUuNCAwIDAgMS04LTIuOUgxVjEzYTkgOSAwIDAgMCA4IDV6IiBmaWxsPSIjMzRBODUzIiBmaWxsLXJ1bGU9Im5vbnplcm8iLz48cGF0aCBkPSJNNCAxMC43YTUuNCA1LjQgMCAwIDEgMC0zLjRWNUgxYTkgOSAwIDAgMCAwIDhsMy0yLjN6IiBmaWxsPSIjRkJCQzA1IiBmaWxsLXJ1bGU9Im5vbnplcm8iLz48cGF0aCBkPSJNOSAzLjZjMS4zIDAgMi41LjQgMy40IDEuM0wxNSAyLjNBOSA5IDAgMCAwIDEgNWwzIDIuNGE1LjQgNS40IDAgMCAxIDUtMy43eiIgZmlsbD0iI0VBNDMzNSIgZmlsbC1ydWxlPSJub256ZXJvIi8+PHBhdGggZD0iTTAgMGgxOHYxOEgweiIvPjwvZz48L3N2Zz4=);
+      background-color: white;
+      background-repeat: no-repeat;
+      background-position: 12px 11px;
+
+      &:hover {
+        box-shadow: 0 -1px 0 rgba(0, 0, 0, .04), 0 2px 4px rgba(0, 0, 0, .25);
+      }
+
+      &:active {
+        background-color: #eeeeee;
+      }
+
+      &:focus {
+        outline: none;
+        box-shadow:
+          0 -1px 0 rgba(0, 0, 0, .04),
+          0 2px 4px rgba(0, 0, 0, .25),
+          0 0 0 3px #c8dafc;
+      }
+    }
+
+    .or-divider {
+      display: flex;
+      align-items: center;
+      text-align: center;
+      margin: 20px 0;
+    }
+
+    .or-divider::before,
+    .or-divider::after {
+      content: '';
+      flex: 1;
+      border-bottom: 1px solid #ccc;
+    }
+
+    .or-divider:not(:empty)::before {
+      margin-right: .25em;
+    }
+
+    .or-divider:not(:empty)::after {
+      margin-left: .25em;
+    }
+  </style>
+</head>
+
+<body class="login-bg-black">
+
+  <div id="layoutAuthentication">
+    <div id="layoutAuthentication_content">
+      <main>
+        <div class="container-xl px-4">
+          <div class="row justify-content-center">
+            <div class="col-lg-5">
+              <!-- Basic login form-->
+              <div class="card shadow-lg border-0 rounded-lg mt-5">
+                <!--
+                                <div class="card-header justify-content-center">
+
+                                    <h3 class="fw-light my-4">CDM Student Portal Login</h3>
+
+                                </div>-->
+                <div class="card-body">
+
+                  <div class="row justify-content-center">
+                    <img class="img-fluid" src="https://upload.wikimedia.org/wikipedia/en/b/b6/The_Colegio_de_Montalban_Seal.png" style="max-width: 8rem" />
+                  </div>
+<br>
+<div>
+<h1 style="text-align: center;"><b>Colegio de Montalban</b> <h2 style="text-align: center;">Student Portal v3.0</h2></h1>
+
+</div>
+
+
+      <!-- Portal Info Button -->
+<!--
+               <div class="text-center">
+              
+                    <div class="row mb-2">
+                      <div class="col-12">
+                        <button type="button" class="btn btn-outline-info btn-sm" onclick="showWelcomeInfo()">
+                            <i class="fas fa-info-circle me-1"></i>Portal Information
+                        </button>
+                      </div>
+                    </div>
+
+-->
+
+
+
+                    <!-- Brief info text -->
+                    
+                    <!--
+                    
+                    <div class="row mb-3">
+                      <div class="col-12">
+                      <small class="text-muted">
+                        For continuing students, faculty, and staff<br>
+                        Applicants: <a href="https://admission.pnm.edu.ph" target="_blank" class="text-decoration-none">admission.pnm.edu.ph</a>
+                      </small>
+                      </div>
+                    </div>
+-->
+
+<br>
+
+                    <div class="row">
+                      <div class="col-12">
+                      <div class="text-center mb-3">
+                        <h6 class="text-muted mb-2">
+                        <i class="fas fa-rocket me-2"></i>Quick Sign-in Available
+                        </h6>
+                        <p class="small text-muted mb-0">For users with @pnm.edu.ph accounts</p>
+                      </div>
+                      </div>
+                    </div>
+                    
+
+
+
+
+                    <form method="post" action="login.php">
+                      <!-- Form Group (student id)-->
+                      <div class="mb-3">
+                        <label class="small mb-1" for="inputStudentID">Student ID</label>
+                        <input class="form-control" id="inputStudentID" type="text" placeholder="XX-XXXXX" name="studentid" value="" />
+                      </div>
+
+                      <!-- Form Group (email address) -->
+                      <div class="mb-3">
+                        <label class="small mb-1" for="inputEmailAddress">Email Address</label>
+                        <input class="form-control" id="inputEmailAddress" type="email" placeholder="Enter email address" name="emailaddress" value="" autocomplete="on" required />
+                      </div>
+                      <!-- Form Group (password)-->
+                      <div class="mb-3">
+                        <label class="small mb-1" for="inputPassword">Password</label>
+                        <input class="form-control" id="inputPassword" type="password" placeholder="Enter password" name="password" required />
+                      </div>
+
+                      <div class="d-flex align-items-center justify-content-left mb-0mb-3">
+                        <div class="form-check">
+                          <input class="form-check-input" id="checkAccountChanges" type="checkbox" onclick="showPass()" />Show password
+                        </div>
+                      </div>
+
+
+     <div class="d-flex align-items-center justify-content-between mb-0">
+                        <a class="small text-primary" href="../forgot-password">Forgot Password?</a>
+                        <button type="submit" class="btn btn-primary mb-3" name="login">Login</button>
+                      </div>
+
+                    <div class="or-divider">or</div>
+
+                    <div class="row mb-3">
+                      <div class="col-12 d-grid">
+                      <a class='btn btn-light border w-100 text-dark text-decoration-none d-flex align-items-center justify-content-center' href='https://accounts.google.com/o/oauth2/v2/auth?response_type=code&amp;access_type=online&amp;client_id=98978688330-mmr5agl6nsevtmkhptiapkqj0cvfr41j.apps.googleusercontent.com&amp;redirect_uri=https%3A%2F%2Fportal.pnm.edu.ph%2Fv2%2Fwelcome.php&amp;state&amp;scope=email%20profile&amp;approval_prompt=auto'>
+                          <svg width='18' height='18' viewBox='0 0 18 18' xmlns='http://www.w3.org/2000/svg' class='me-2'>
+                            <g fill='none' fill-rule='evenodd'>
+                              <path d='M17.6 9.2l-.1-1.8H9v3.4h4.8C13.6 12 13 13 12 13.6v2.2h3a8.8 8.8 0 0 0 2.6-6.6z' fill='#4285F4'/>
+                              <path d='M9 18c2.4 0 4.5-.8 6-2.2l-3-2.2a5.4 5.4 0 0 1-8-2.9H1V13a9 9 0 0 0 8 5z' fill='#34A853'/>
+                              <path d='M4 10.7a5.4 5.4 0 0 1 0-3.4V5H1a9 9 0 0 0 0 8l3-2.3z' fill='#FBBC05'/>
+                              <path d='M9 3.6c1.3 0 2.5.4 3.4 1.3L15 2.3A9 9 0 0 0 1 5l3 2.4a5.4 5.4 0 0 1 5-3.7z' fill='#EA4335'/>
+                            </g>
+                          </svg>
+                          Continue with Google
+                        </a>                      </div>
+
+                               </div>
+                    <div class="row mb-3">
+                      <div class="col-12">
+                      <div class="alert alert-info py-2 px-3 mb-0" role="alert">
+                        <small class="mb-0">
+                        <i class="fas fa-info-circle me-1"></i>
+                        <strong>Note:</strong> If Google sign-in doesn't work, please use the form above.
+                        </small>
+                      </div>
+                      </div>
+                    </div>
+                    </div>
+                                                                <!--<div class="g-recaptcha my-3" data-sitekey="6Ldi-00qAAAAABK3kF-t6JuUGSLNbxE0YxnGTY5S"></div>
+                       Form Group (login box)-->
+                 
+
+
+
+
+
+                       
+                    </form>
+
+           
+
+
+
+
+
+
+                  <!--
+                                    <div class="card-footer text-center">
+                                        <div class="small"><a href="register.php" class="text-primary">Need an account? Request Access!</a></div>
+                                    </div>
+                                    -->
+                </div>
+              </div>
+            </div>
+          </div>
+      </main>
+    </div>
+    <div id="layoutAuthentication_footer">
+    <footer class="footer-admin mt-auto footer-dark">
+        <div class="container-xl px-4">
+            <div class="row">
+                <div class="col-md-6 small">Copyright &copy; CDM Portal 2025</div>
+                <div class="col-md-6 text-md-end small">
+                    <a href="#exampleModalCenter" data-bs-toggle="modal" data-bs-target="#exampleModalCenter">About</a>
+                    &middot;
+                    <a href="#TC" data-bs-toggle="modal" data-bs-target="#TC">Terms &amp; Conditions</a>
+                    &middot;
+                    <a href="#PP" data-bs-toggle="modal" data-bs-target="#PP">Privacy Policy</a>
+                </div>
+
+                <div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+                    <div class="modal-dialog modal-dialog-centered" role="document">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <h5 class="modal-title" id="exampleModalCenterTitle">About</h5>
+                                <button class="btn-close" type="button" data-bs-dismiss="modal" aria-label="Close"></button>
+                            </div>
+                            <div class="modal-body text-dark">This application is designed and developed by <strong>Engr. John Julius Baldia</strong> of Institute of Computer Studies - Computer Engineering Department <br><br> Portal Login UX/ UI was modified and improved by John Lloyd Nicolas Quilino.
+                                <br>
+                                <br>
+                                <ul>
+                                    <li><strong>Theme:</strong> SB Admin Pro</li>
+                                    <li><strong>Front-end:</strong> HTML, CSS, Javascript, Bootstrap</li>
+                                    <li><strong>Back-end:</strong> PHP, SQL</li>
+                                    <li><strong>Server:</strong> Azure Virtual Machine located in Singapore</li>
+                                    <li><strong>Security:</strong> Protected by Cloudflare</li>
+                                </ul>
+                            </div>
+                            <div class="modal-footer"><button class="btn btn-secondary" type="button" data-bs-dismiss="modal">Close</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="modal fade" id="TC" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+                    <div class="modal-dialog modal-xl modal-dialog-centered" role="document">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <h5 class="modal-title" id="TCTitle">Terms & Conditions</h5>
+                                <button class="btn-close" type="button" data-bs-dismiss="modal" aria-label="Close"></button>
+                            </div>
+                            <div class="modal-body text-black m-4">
+                                <p><strong>Effective Date:</strong> [date_of_approval]</p>
+
+                                <p>Welcome to the CDM Portal, provided by Colegio de Montalban. By accessing or using the CDM Portal, you agree to comply with and be bound by the following terms and conditions. Please read them carefully.</p>
+
+                                <h2 class="mt-4">Use of the CDM Portal:</h2>
+
+                                <p class="ms-4"><strong>Access:</strong> The CDM Portal is provided for the exclusive use of Colegio de Montalban. Users are granted access for educational and administrative purposes related to the College.</p>
+
+                                <p class="ms-4"><strong>Ownership:</strong> The CDM Portal is owned and operated by John Julius Baldia. It is provided to Colegio de Montalban for its exclusive use.</p>
+
+                                <p class="ms-4"><strong>Temporary Domain:</strong> The CDM Portal is currently accessible through the temporary domain "cdm.guarantechph.com." Please be aware that during this period, the domain and server owner of "guarantechph.com" may have access to the data.</p>
+
+                                <p class="ms-4"><strong>Domain Transfer:</strong> Colegio de Montalban is in the process of acquiring a dedicated ".edu.ph" domain and server for the CDM Portal. Once acquired, all data collected on the temporary domain "cdm.guarantechph.com" will be transferred to the dedicated domain.</p>
+
+                                <p class="ms-4"><strong>Registration:</strong> To access certain features, you may be required to register an account. You agree to provide accurate and complete information during the registration process.</p>
+
+                                <h2 class="mt-4">User Responsibilities:</h2>
+
+                                <p class="ms-4"><strong>Acceptable Use:</strong> You agree not to use the CDM Portal for any unlawful or prohibited purpose.</p>
+
+                                <p class="ms-4"><strong>User Content:</strong> Any content you submit to the CDM Portal remains your property. By submitting content, you grant us a non-exclusive, royalty-free, worldwide license to use, display, and reproduce it.</p>
+
+                                <h2 class="mt-4">Intellectual Property:</h2>
+
+                                <p class="ms-4"><strong>Ownership:</strong> The CDM Portal and its original content, features, and functionality are owned by Colegio de Montalban and are protected by international copyright, trademark, patent, trade secret, and other intellectual property or proprietary rights laws.</p>
+
+                                <p class="ms-4"><strong>Restrictions:</strong> You may not modify, reproduce, distribute, create derivative works, publicly display, publicly perform, or otherwise use any part of the CDM Portal without our written consent.</p>
+
+                                <h2 class="mt-4">Privacy:</h2>
+
+                                <p class="ms-4"><strong>Data Collection:</strong> Our use of your personal information is governed by our Privacy Policy. By using the CDM Portal, you consent to the collection and use of your information as outlined in the Privacy Policy.</p>
+
+                                <h2 class="mt-4">Termination:</h2>
+
+                                <p class="ms-4"><strong>Termination by Us:</strong> We reserve the right to terminate or suspend your access to the CDM Portal without prior notice for any reason, including a breach of these Terms and Conditions.</p>
+
+                                <p class="ms-4"><strong>Termination by You:</strong> You may stop using the CDM Portal at any time.</p>
+
+                                <h2 class="mt-4">Changes to Terms and Conditions:</h2>
+
+                                <p>We reserve the right to update or change these Terms and Conditions at any time. Your continued use of the CDM Portal after such changes indicates your acceptance of the modified terms.</p>
+
+                                <h2 class="mt-4">Governing Law:</h2>
+
+                                <p>These Terms and Conditions are governed by and construed in accordance with the laws of the Philippines. Any disputes arising under or in connection with these terms shall be subject to the exclusive jurisdiction of the courts of the Philippines.</p>
+
+                                <h2 class="mt-4">Contact Information:</h2>
+
+                                <p class="ms-4">If you have any questions or concerns about these Terms and Conditions, please contact us at <a href="/cdn-cgi/l/email-protection#89eae6e5eceee0e6edece4e6e7fde8e5ebe8e7a7e6efefe0eae0e8e5c9eee4e8e0e5a7eae6e4"><span class="__cf_email__" data-cfemail="482b27242d2f21272c2d2527263c29242a292666272e2e212b212924082f25292124662b2725">[email&#160;protected]</span></a>.</p>
+
+                                <p>By using the CDM Portal, you agree to be bound by these Terms and Conditions.</p>
+                            </div>
+                            <div class="modal-footer"><button class="btn btn-secondary" type="button" data-bs-dismiss="modal">Close</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="modal fade" id="PP" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+                    <div class="modal-dialog modal-xl modal-dialog-centered" role="document">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <h5 class="modal-title" id="exampleModalCenterTitle">Privacy Policy</h5>
+                                <button class="btn-close" type="button" data-bs-dismiss="modal" aria-label="Close"></button>
+                            </div>
+                            <div class="modal-body text-black m-4">
+                                <p><strong>Last Updated:</strong> June 4, 2024</p>
+
+                                <p>Welcome to the CDM Portal, provided by Colegio de Montalban. Your privacy is important to us, and we are committed to protecting your personal information in accordance with Republic Act No. 10173, also known as the Data Privacy Act of 2012.</p>
+
+                                <h2 class="mt-4">Information We Collect</h2>
+
+                                <p class="ms-4">We collect the following types of information:</p>
+
+                                <ul class="ms-5">
+                                    <li><strong>Personal Information:</strong> This may include your name, contact details, and other personally identifiable information.</li>
+                                    <li><strong>Usage Information:</strong> We collect data on how you interact with the CDM Portal, including the pages you visit and the actions you take.</li>
+                                </ul>
+
+                                <h2 class="mt-4">Cookies and Tracking Technologies</h2>
+
+                                <p class="ms-4">We use cookies and similar tracking technologies to enhance your experience on the CDM Portal. Cookies are small files stored on your device that help us remember your preferences and improve the functionality of the Portal.</p>
+
+                                <ul class="ms-5">
+                                    <li><strong>Essential Cookies:</strong> These cookies are necessary for the CDM Portal to function properly and cannot be turned off.</li>
+                                    <li><strong>Performance Cookies:</strong> These cookies help us analyze how users interact with the Portal, so we can improve its performance.</li>
+                                    <li><strong>Functional Cookies:</strong> These cookies allow us to remember your preferences and settings, providing a more personalized experience.</li>
+                                </ul>
+
+                                <p class="ms-4">You can manage or disable cookies through your browser settings. Please note that disabling cookies may affect your experience on the CDM Portal.</p>
+
+                                <h2 class="mt-4">How We Use Your Information</h2>
+
+                                <ul class="ms-5">
+                                    <li><strong>To provide and maintain the CDM Portal.</strong></li>
+                                    <li><strong>To improve and customize your user experience.</strong></li>
+                                    <li><strong>To send important notifications and updates.</strong></li>
+                                </ul>
+
+                                <h2 class="mt-4">Data Security</h2>
+
+                                <p class="ms-4">We implement reasonable security measures to protect your personal information from unauthorized access or disclosure. However, no method of transmission over the internet or electronic storage is completely secure.</p>
+
+                                <h2 class="mt-4">Sharing Your Information</h2>
+
+                                <p class="ms-4">We do not sell, trade, or otherwise transfer your personal information to third parties. However, we may share it with trusted service providers who assist us in operating the CDM Portal.</p>
+
+                                <h2 class="mt-4">Your Rights</h2>
+
+                                <p class="ms-4">You have the right to access, correct, and delete your personal information. To exercise these rights, please contact us at <a href="/cdn-cgi/l/email-protection#4b22252d240b3b2526652e2f3e653b23"><span class="__cf_email__" data-cfemail="650c0b030a25150b084b0001104b150d">[email&#160;protected]</span></a>.</p>
+
+                                <h2 class="mt-4">Changes to This Privacy Policy</h2>
+
+                                <p class="ms-4">We may update this privacy policy from time to time. Any changes will be communicated with prior notice.</p>
+
+                                <h2 class="mt-4">Contact Information</h2>
+
+                                <p class="ms-4">If you have any questions or concerns about our privacy practices, please contact us at <a href="/cdn-cgi/l/email-protection#5c35323a331c2c323172393829722c34"><span class="__cf_email__" data-cfemail="452c2b232a05352b286b2021306b352d">[email&#160;protected]</span></a>.</p>
+
+                                <p>By using the CDM Portal, you agree to the terms outlined in this privacy policy.</p>
+                            </div>
+                            <div class="modal-footer"><button class="btn btn-secondary" type="button" data-bs-dismiss="modal">Close</button>
+                            </div>
+                        </div>
+                    </div>
+    </footer>
+</div>    <!-- Welcome Modal for Students/Applicants -->
+    <div class="modal fade" id="welcomeModal" tabindex="-1" role="dialog" aria-labelledby="welcomeModalLabel" aria-hidden="true">
+      <div class="modal-dialog modal-dialog-centered" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="welcomeModalLabel"><strong>Welcome to CDM Portal</strong></h5>
+            <button class="btn-close" type="button" data-bs-dismiss="modal" aria-label="Close"></button>
+          </div>
+          <div class="modal-body text-dark">
+            <span>
+              <span>This portal is intended for continuing students, staff, and faculty of Colegio de Montalban.</span><br><br>
+              <span>If you are a new applicant, please use our Admissions Portal:</span><br>
+              <a href="https://admission.pnm.edu.ph" target="_blank">admission.pnm.edu.ph</a>
+            </span>
+          </div>
+          <div class="modal-footer">
+            <button class="btn btn-secondary" type="button" data-bs-dismiss="modal">Close</button>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- Modal HTML -->
+    <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+      <div class="modal-dialog modal-dialog-centered" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="exampleModalLabel"><strong>Confirmation for Intent to Enroll Re-opened</strong></h5>
+            <button class="btn-close" type="button" data-bs-dismiss="modal" aria-label="Close"></button>
+          </div>
+          <div class="modal-body text-dark">
+            <div class="text-center mb-4">
+              <img class="img-fluid" src="..\assets\img\illustrations\enrollment.svg" style="max-width: 10rem" />
+            </div>
+            <span>
+              <strong>Good news! The confirmation for intent to enroll has been re-opened!</strong><br><br>
+              In response to numerous requests, continuing students for the <strong>2nd Semester, Academic Year 2024-2025</strong>
+              now have another opportunity to confirm their intent to enroll.<br><br>
+              Please log in to your student portal to complete the confirmation process.<br><br>
+              Don't miss this chance—make sure to confirm your enrollment before the deadline.
+            </span>
+          </div>
+          <div class="modal-footer">
+            <button class="btn btn-secondary" type="button" data-bs-dismiss="modal">Close</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+
+    <script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" crossorigin="anonymous"></script>
+    <script src="../js/scripts.js"></script>
+    <script>
+      function showPass() {
+        var x = document.getElementById("inputPassword");
+        if (x.type === "password") {
+          x.type = "text";
+        } else {
+          x.type = "password";
+        }
+      }
+
+      function showWelcomeInfo() {
+        var modal = new bootstrap.Modal(document.getElementById('welcomeModal'));
+        modal.show();
+      }
+
+      document.addEventListener("DOMContentLoaded", function() {
+        var studentIdInput = document.getElementById("inputStudentID");
+
+        studentIdInput.addEventListener("input", function() {
+          // Remove non-numeric characters
+          var sanitizedValue = this.value.replace(/\D/g, '');
+
+          // Format the input as "xx-xxxxx"
+          var formattedValue = sanitizedValue.slice(0, 2);
+
+          if (sanitizedValue.length > 2) {
+            formattedValue += '-' + sanitizedValue.slice(2, 7);
+          }
+
+          // Update the input field
+          this.value = formattedValue;
+        });
+
+        studentIdInput.addEventListener("keydown", function(event) {
+          // Allow backspace
+          if (event.key === 'Backspace' && this.value.endsWith('-')) {
+            // Remove the hyphen if the cursor is right after it
+            this.value = this.value.slice(0, -1);
+          }        });        // Show the welcome modal using Local Storage (industry standard)
+        if (!localStorage.getItem('cdm_welcome_modal_shown')) {
+          var welcomeModal = new bootstrap.Modal(document.getElementById('welcomeModal'));
+          welcomeModal.show();
+          
+          // Mark as shown when modal is displayed
+          welcomeModal._element.addEventListener('shown.bs.modal', function () {
+            localStorage.setItem('cdm_welcome_modal_shown', 'true');
+          });
+        }
+      });
+
+      // Function to show welcome info modal manually
+      function showWelcomeInfo() {
+        var welcomeModal = new bootstrap.Modal(document.getElementById('welcomeModal'));
+        welcomeModal.show();
+      }
+    </script>
+<script defer src="https://static.cloudflareinsights.com/beacon.min.js/vcd15cbe7772f49c399c6a5babf22c1241717689176015" integrity="sha512-ZpsOmlRQV6y907TI0dKBHq9Md29nnaEIPlkf84rnaERnq6zvWvPUqr2ft8M1aS28oN72PdrCzSjY4U6VaAw1EQ==" data-cf-beacon='{"rayId":"966c3ff4cf6bf8d4","version":"2025.7.0","r":1,"token":"845a66e9fd0049bfbb9af9dfc6aad021","serverTiming":{"name":{"cfExtPri":true,"cfEdge":true,"cfOrigin":true,"cfL4":true,"cfSpeedBrain":true,"cfCacheStatus":true}}}' crossorigin="anonymous"></script>
+</body>
+
+</html>
